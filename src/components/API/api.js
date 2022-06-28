@@ -22,7 +22,9 @@ export default function ApiComponent (){
         },2000)
     },[])
     return(
-        <>
+        <form onSubmit={e=>{
+            e.preventDefault()
+        }}>
             <input ref={refInput} value={input} onChange={e=>{setInput(e.target.value)}} />
             <button onClick={()=>{getAdress()}}> Buscar </button>
             <ul>
@@ -31,6 +33,6 @@ export default function ApiComponent (){
                 <li>{estado}</li>
                 <li>{cep}</li>
             </ul>
-        </>
+        </form>
     );
 }
