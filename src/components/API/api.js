@@ -15,9 +15,15 @@ export default function ApiComponent (){
             setInput("")
         })
     };
+    const refInput = useRef()
+    useEffect(()=>{
+        setTimeout(()=>{
+            refInput.current.focus()
+        },2000)
+    },[])
     return(
         <>
-            <input value={input} onChange={e=>{setInput(e.target.value)}} />
+            <input ref={refInput} value={input} onChange={e=>{setInput(e.target.value)}} />
             <button onClick={()=>{getAdress()}}> Buscar </button>
             <ul>
                 <li>{rua}</li>
